@@ -66,7 +66,6 @@ add[0].addEventListener("click", () => {
   // menghilangkan class none pada food-1 supaya menjadi active
   document.querySelector(".food-1").classList.remove("none");
   shopping();
-  alert("Successfully added");
 });
 add[1].addEventListener("click", () => {
   const price = document.getElementById("price-2");
@@ -76,7 +75,6 @@ add[1].addEventListener("click", () => {
 
   document.querySelector(".food-2").classList.remove("none");
   shopping();
-  alert("Successfully added");
 });
 add[2].addEventListener("click", () => {
   const price = document.getElementById("price-3");
@@ -86,7 +84,6 @@ add[2].addEventListener("click", () => {
 
   document.querySelector(".food-3").classList.remove("none");
   shopping();
-  alert("Successfully added");
 });
 add[3].addEventListener("click", () => {
   const price = document.getElementById("price-4");
@@ -96,7 +93,6 @@ add[3].addEventListener("click", () => {
 
   document.querySelector(".food-4").classList.remove("none");
   shopping();
-  alert("Successfully added");
 });
 
 // Mereset semua qty menjadi 0
