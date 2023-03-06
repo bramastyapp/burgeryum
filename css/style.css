@@ -5,7 +5,6 @@
   --bg2: #1f242d;
 }
 html {
-  overflow-x: hidden;
   scroll-behavior: smooth;
 }
 * {
@@ -17,6 +16,7 @@ html {
   text-decoration: none;
 }
 body {
+  overflow-x: hidden;
   max-width: 100%;
   font-family: "Quicksand", sans-serif;
   background-color: var(--bg2);
@@ -453,7 +453,6 @@ td {
 
 /* Contact Section */
 .contact {
-  min-height: 60vh;
   padding: 8rem 7% 8rem;
   background-image: linear-gradient(rgb(6, 6, 17, 1), rgb(31, 36, 45, 0.2));
 }
