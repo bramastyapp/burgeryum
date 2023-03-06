@@ -14,6 +14,27 @@ document.addEventListener("click", function (e) {
     navbarNav.classList.remove("active");
   }
 });
+// Navbar Active
+let section = document.querySelectorAll("section");
+let navLinks = document.querySelectorAll("nav a");
+
+window.onscroll = () => {
+  section.forEach((sec) => {
+    let top = window.scrollY;
+    let offset = sec.offsetTop - 150;
+    let height = sec.offsetHeight;
+    let id = sec.getAttribute("id");
+
+    if (top >= offset && top < offset + height) {
+      navLinks.forEach((links) => {
+        links.classList.remove("active");
+        document
+          .querySelector("nav a[href*=" + id + "]")
+          .classList.add("active");
+      });
+    }
+  });
+};
 // toggle class active cart
 const cart = document.getElementById("cart");
 const navCart = document.querySelector(".nav-cart");
@@ -66,7 +87,7 @@ add[0].addEventListener("click", () => {
   // menghilangkan class none pada food-1 supaya menjadi active
   document.querySelector(".food-1").classList.remove("none");
   shopping();
-  alert("Food added!");
+  alert("Chicken Burger added!");
 });
 add[1].addEventListener("click", () => {
   const price = document.getElementById("price-2");
@@ -76,7 +97,7 @@ add[1].addEventListener("click", () => {
 
   document.querySelector(".food-2").classList.remove("none");
   shopping();
-  alert("Food added!");
+  alert("Black Burger added!");
 });
 add[2].addEventListener("click", () => {
   const price = document.getElementById("price-3");
@@ -86,7 +107,7 @@ add[2].addEventListener("click", () => {
 
   document.querySelector(".food-3").classList.remove("none");
   shopping();
-  alert("Food added!");
+  alert("Burger Packages added!");
 });
 add[3].addEventListener("click", () => {
   const price = document.getElementById("price-4");
@@ -96,7 +117,7 @@ add[3].addEventListener("click", () => {
 
   document.querySelector(".food-4").classList.remove("none");
   shopping();
-  alert("Food added!");
+  alert("Chocolate float added!");
 });
 
 // Mereset semua qty menjadi 0

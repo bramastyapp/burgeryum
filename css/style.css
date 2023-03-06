@@ -7,6 +7,7 @@
 html {
   overflow-x: hidden;
   scroll-behavior: smooth;
+  max-width: 100%;
 }
 * {
   margin: 0;
@@ -19,7 +20,6 @@ html {
 body {
   font-family: "Quicksand", sans-serif;
   background-color: var(--bg2);
-  height: 3000px;
 }
 
 /* Navbar */
@@ -30,7 +30,7 @@ nav {
   align-items: center;
   justify-content: space-between;
   backdrop-filter: blur(2px);
-  /* border-bottom: 1px solid rgb(6, 6, 17, 1); */
+  border-bottom: 1px solid rgb(155, 114, 38, 0.2);
   position: fixed;
   padding: 0.7rem 7%;
   top: 0;
@@ -59,8 +59,17 @@ nav .navbar-nav a {
   font-size: 1.3rem;
   transition: 0.2s linear;
 }
-nav .navbar-nav a:hover {
+nav .navbar-nav a:hover,
+nav .navbar-nav .active {
   color: var(--primary);
+}
+nav .navbar-nav .active::after {
+  content: "";
+  display: block;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--primary);
+  transform: scaleX(0.5);
+  transition: 0.2s linear;
 }
 nav .navbar-nav a::after {
   content: "";
@@ -276,7 +285,7 @@ td {
   border-radius: 0.3rem;
   background-color: var(--primary);
   color: #fff;
-  text-shadow: 1px 1px 3px rgba(1, 1, 3, 0.3);
+  /* text-shadow: 1px 1px 3px rgba(1, 1, 3, 0.3); */
 }
 .home a:hover,
 .contact button:hover {
@@ -310,6 +319,8 @@ td {
   margin-top: 13rem;
   margin-right: 5rem;
   flex: 1 1 45rem;
+  animation: floatImage 3s ease-in-out infinite;
+  animation-delay: 2s;
 }
 .about .row .about-img .burger-img {
   position: absolute;
@@ -323,9 +334,7 @@ td {
   transform: rotate(15deg);
   z-index: -2;
 }
-.about .row .about-img img:hover {
-  transform: translateX(-2rem);
-}
+
 .about .row .animblob {
   position: absolute;
   z-index: -3;
@@ -450,14 +459,17 @@ td {
 }
 .contact .row {
   display: flex;
-  background-color: #fff;
+  background-color: #010101;
   flex-wrap: wrap;
+  border-radius: 20px;
+  overflow: hidden;
 }
 .contact .row form {
   order: 1;
   flex: 1 1 55rem;
   width: 100%;
   padding: 4rem 4%;
+  background-color: #fff;
 }
 .contact .row form .input-group input {
   width: 100%;
@@ -483,7 +495,7 @@ td {
   font-size: 1.4rem;
   background-color: #eee;
   font-family: "Quicksand", sans-serif;
-  /* background: none; */
+  resize: none;
   color: var(--bg);
 }
 .contact .row form .input-group input:focus {
@@ -519,6 +531,32 @@ td {
 .contact .row .maps .icon-contact h4 {
   margin-left: 1rem;
   font-weight: 400;
+}
+/* Footer */
+footer .content {
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(6, 6, 17);
+  border-top: 1px solid #9b7226;
+}
+footer .content .icon {
+  display: flex;
+  justify-content: space-between;
+}
+
+footer .content .icon a {
+  margin: 0.5rem;
+}
+footer .content .icon img {
+  width: 20px;
+}
+footer .content h4 {
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: var(--primary);
 }
 /* Media Queries */
 /* Laptop */
@@ -597,5 +635,16 @@ td {
   }
   .about .row .content h3 {
     font-size: 3rem;
+  }
+}
+@keyframes floatImage {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-35px);
+  }
+  100% {
+    transform: translateY(0);
   }
 }
